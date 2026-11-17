@@ -21,7 +21,7 @@ class MainActivity : Activity() {
   header.addView(TextView(this).apply { text="TIN TỨC CÔNG AN HƯNG YÊN"; textSize=19f; setTextColor(Color.WHITE); setTypeface(null,Typeface.BOLD) })
   address=TextView(this).apply { text="Nguồn: congan.hungyen.gov.vn"; setTextColor(Color.WHITE); textSize=12f }
   header.addView(address); root.addView(header)
-  val search=EditText(this).apply { hint="Tìm từ khóa trên website"; singleLine=true; setPadding(18,4,18,4) }
+  val search=EditText(this).apply { hint="Tìm từ khóa trên website"; setSingleLine(true); setPadding(18,4,18,4) }
   val searchRow=LinearLayout(this); searchRow.addView(search,LinearLayout.LayoutParams(0,55,1f))
   val searchButton=Button(this).apply { text="Tìm"; setOnClickListener { val q=Uri.encode(search.text.toString().trim()); if(q.isNotEmpty()) web.loadUrl("https://congan.hungyen.gov.vn/tim-kiem.html?keyword=$q") } }
   searchRow.addView(searchButton); root.addView(searchRow)
